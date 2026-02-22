@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import profileImg from '../../assets/1000268674.jpg.jpeg';
+import profileImg from '../../assets/1000289083.jpg.jpeg';
 import './About.css';
 
 const About = () => {
