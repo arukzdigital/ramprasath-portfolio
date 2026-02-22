@@ -257,3 +257,29 @@ img {
 .text-muted {
     color: var(--text-muted);
 }
+
+/* -------------------------------------
+   PRINT STYLES FOR PDF EXPORT
+-------------------------------------- */
+@media print {
+
+    html,
+    body {
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Optional: hide buttons for a cleaner resume look */
+    .hero-actions,
+    .filter-btn,
+    .video-modal-overlay {
+        display: none !important;
+    }
+}
