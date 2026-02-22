@@ -31,6 +31,7 @@ const MediaGallery = () => {
 
     // Specific Youtube Links provided by user
     const videos = [
+        { id: 0, title: 'Self Introduction', yt: '4pQq4caQFh8' },
         { id: 1, title: 'Performance Showreel 1', yt: 'ny_qTmnqsyE' },
         { id: 2, title: 'Performance Showreel 2', yt: 'GCUybdjE-pE' },
         { id: 3, title: 'Performance Showreel 3', yt: 'zDX8cVhZpwo' },
