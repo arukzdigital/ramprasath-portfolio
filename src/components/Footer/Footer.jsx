@@ -1,35 +1,40 @@
 import React from 'react';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Instagram, Youtube } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer className="footer-section">
-            <div className="container">
-                <div className="footer-content glass-card">
-                    <div className="footer-brand">
-                        <h2>Ram Prasath.T</h2>
-                        <p className="text-muted">Professional Actor based in Chennai, available for Feature Films, Theatre, and Digital Media.</p>
-                    </div>
+        <footer id="contact" className="footer-section section container">
+            <div className="footer-wrapper text-center">
+                <h2 className="footer-title">Let's Connect</h2>
+                <p className="about-bio text-muted" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
+                    Available for Feature Films, Theatre productions, and Digital Media projects. Reach out for collaborations and casting details.
+                </p>
 
-                    <div className="footer-contact">
-                        <h3>Get in Touch</h3>
-                        <div className="contact-item">
-                            <Phone size={20} className="accent-text" />
-                            <div>
-                                <a href="tel:+919566871226">+91 95668 71226</a> <br />
-                                <a href="tel:+916383843409">+91 63838 43409</a>
-                            </div>
-                        </div>
+                <div className="contact-cards">
+                    <a href="mailto:raamprasath10@gmail.com" className="contact-card glass-card">
+                        <Mail size={24} className="contact-icon" />
+                        <span className="contact-label">Email</span>
+                        <span className="contact-value">raamprasath10@gmail.com</span>
+                    </a>
 
-                        <div className="contact-item">
-                            <Mail size={20} className="accent-text" />
-                            <a href="mailto:raamprasath10@gmail.com">raamprasath10@gmail.com</a>
-                        </div>
-                    </div>
+                    <a href="tel:+919566871226" className="contact-card glass-card">
+                        <Phone size={24} className="contact-icon" />
+                        <span className="contact-label">Phone</span>
+                        <span className="contact-value">+91 95668 71226</span>
+                    </a>
                 </div>
 
-                <div className="footer-bottom text-muted">
+                <div className="social-links flex-center">
+                    <a href="#" className="social-icon" aria-label="Instagram">
+                        <Instagram size={20} />
+                    </a>
+                    <a href="#" className="social-icon" aria-label="YouTube">
+                        <Youtube size={20} />
+                    </a>
+                </div>
+
+                <div className="footer-bottom">
                     <p>&copy; {new Date().getFullYear()} Ram Prasath.T. All rights reserved.</p>
                 </div>
             </div>
