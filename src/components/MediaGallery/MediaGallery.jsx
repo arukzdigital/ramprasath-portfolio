@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Play, X } from 'lucide-react';
 import './MediaGallery.css';
 
 // Import all assets
@@ -14,6 +15,7 @@ import img8 from '../../assets/1000292817.jpg.jpeg';
 
 const MediaGallery = () => {
     const [activeTab, setActiveTab] = useState('Photos');
+    const [selectedVideo, setSelectedVideo] = useState(null);
 
     // New photos from assets
     const photos = [
@@ -93,15 +95,19 @@ const MediaGallery = () => {
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.4, delay: index * 0.1 }}
+                                    onClick={() => setSelectedVideo(video)}
                                 >
-                                    <div className="video-container">
-                                        <iframe
-                                            src={`https://www.youtube.com/embed/${video.yt}?rel=0`}
-                                            title={video.title}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        ></iframe>
+                                    <div className="video-thumbnail-container">
+                                        <img
+                                            src={`https://img.youtube.com/vi/${video.yt}/maxresdefault.jpg`}
+                                            alt={video.title}
+                                            className="video-thumbnail"
+                                            loading="lazy"
+                                        />
+                                        <div className="play-button-overlay">
+                                            <div className="play-button-pulse"></div>
+                                            <Play size={28} className="play-icon" color="white" fill="white" />
+                                        </div>
                                     </div>
                                     <h3 className="video-title">{video.title}</h3>
                                 </motion.div>
@@ -109,6 +115,40 @@ const MediaGallery = () => {
                         </div>
                     )}
                 </motion.div>
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {selectedVideo && (
+                    <motion.div
+                        className="video-modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedVideo(null)}
+                    >
+                        <motion.div
+                            className="video-modal-content"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button className="video-modal-close" onClick={() => setSelectedVideo(null)}>
+                                <X size={28} />
+                            </button>
+                            <div className="video-modal-iframe-container">
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${selectedVideo.yt}?autoplay=1&rel=0`}
+                                    title={selectedVideo.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
             </AnimatePresence>
         </section>
     );
