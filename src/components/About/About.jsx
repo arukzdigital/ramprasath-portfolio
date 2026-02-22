@@ -25,7 +25,7 @@ const About = () => {
                         I am Ram Prasath.T, a dedicated professional actor currently based in <strong>Chennai</strong>.
                         With a strong background in Mechanical Engineering, I found my true calling in the world of
                         performance arts. I specialize in bringing depth to characters in <strong>Feature Films</strong>,
-                        <strong>Web Series</strong>, <strong>TV Serials</strong>, <strong>Commercials</strong>, and <strong>Theatre</strong>.
+                        <strong>Web Series</strong>, <strong>TV Serials / Commercials</strong>, and <strong>Theatre</strong>.
                     </p>
 
                     <div className="physical-specs flex-center">
