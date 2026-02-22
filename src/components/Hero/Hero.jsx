@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Instagram, Youtube } from 'lucide-react';
+import heroImg from '../../assets/1000268673.jpg.jpeg';
 import './Hero.css';
 
 const Hero = () => {
@@ -23,8 +24,8 @@ const Hero = () => {
                 >
                     <span className="brand-name">RAM PRASATH</span>
                     <div className="header-socials flex-center" style={{ gap: '1rem' }}>
-                        <a href="#" className="social-icon-sm" aria-label="Instagram"><Instagram size={20} /></a>
-                        <a href="#" className="social-icon-sm" aria-label="YouTube"><Youtube size={20} /></a>
+                        <a href="http://www.instagram.com/raam.0110" target="_blank" rel="noopener noreferrer" className="social-icon-sm" aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href="https://youtu.be/4pQq4caQFh8" target="_blank" rel="noopener noreferrer" className="social-icon-sm" aria-label="YouTube"><Youtube size={20} /></a>
                     </div>
                 </motion.div>
 
@@ -60,8 +61,8 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     {/* Main Hero Image */}
-                    <div className="hero-image-placeholder">
-                        <div className="glass-card overlay-intro">
+                    <div className="hero-image-placeholder" style={{ backgroundImage: `url(${heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <div className="glass-card overlay-intro" style={{ marginTop: 'auto', marginBottom: '1rem' }}>
                             <p>"Acting is not about being someone different. It's finding the similarity in what is apparently different."</p>
                         </div>
                     </div>

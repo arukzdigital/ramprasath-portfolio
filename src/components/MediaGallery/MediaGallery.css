@@ -46,15 +46,58 @@
     position: relative;
     background: var(--bg-secondary);
     box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
 }
 
-/* Simulated heights for placeholders to create masonry effect */
-.item-tall {
-    height: 450px;
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--transition-normal);
 }
 
-.item-wide {
-    height: 300px;
+.masonry-item:hover .portfolio-image {
+    transform: scale(1.05);
+}
+
+/* Video Grid Styles */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.video-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-title {
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+    color: var(--text-primary);
 }
 
 .photo-placeholder {
@@ -79,12 +122,6 @@
 
     .masonry-item {
         margin-bottom: 1rem;
-    }
-
-    .item-tall,
-    .item-wide {
-        height: 350px;
-        /* Normalize height somewhat on mobile */
     }
 }
 

@@ -13,6 +13,17 @@
     margin-bottom: var(--space-md);
 }
 
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    border: 4px solid var(--bg-primary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
 .about-image-placeholder {
     width: 100%;
     height: 100%;

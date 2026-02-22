@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import profileImg from '../../assets/1000268674.jpg.jpeg';
 import './About.css';
 
 const About = () => {
@@ -13,10 +14,7 @@ const About = () => {
                 transition={{ duration: 0.8 }}
             >
                 <div className="about-image-container">
-                    <div className="about-image-placeholder">
-                        {/* Circular placeholder for profile photo */}
-                        <span>Profile Photo</span>
-                    </div>
+                    <img src={profileImg} alt="Ram Prasath Profile" className="about-image" />
                     <div className="about-glow"></div>
                 </div>
 

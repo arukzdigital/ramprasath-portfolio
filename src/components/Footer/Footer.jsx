@@ -18,21 +18,18 @@ const Footer = () => {
                         <span className="contact-value" style={{ wordBreak: 'break-all' }}>raamprasath10@gmail.com</span>
                     </a>
 
-                    <div className="contact-card glass-card">
+                    <a href="tel:+919566871226" className="contact-card glass-card">
                         <Phone size={24} className="contact-icon" />
                         <span className="contact-label">Phone</span>
-                        <div className="flex-column" style={{ textAlign: 'center', gap: '0.5rem' }}>
-                            <a href="tel:+919566871226" className="contact-value">+91 95668 71226</a>
-                            <a href="tel:+916383843409" className="contact-value">+91 63838 43409</a>
-                        </div>
-                    </div>
+                        <span className="contact-value">+91 95668 71226</span>
+                    </a>
                 </div>
 
                 <div className="social-links flex-center">
-                    <a href="https://www.instagram.com/ramprasath.t/" className="social-icon" aria-label="Instagram">
+                    <a href="http://www.instagram.com/raam.0110" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
                         <Instagram size={20} />
                     </a>
-                    <a href="#" className="social-icon" aria-label="YouTube">
+                    <a href="https://youtu.be/4pQq4caQFh8" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
                         <Youtube size={20} />
                     </a>
                 </div>

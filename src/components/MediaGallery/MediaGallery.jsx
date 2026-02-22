@@ -1,21 +1,39 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './MediaGallery.css';
 
+// Import all assets
+import img1 from '../../assets/1000268676.jpg.jpeg';
+import img2 from '../../assets/1000279374.jpg.jpeg';
+import img3 from '../../assets/1000279375.jpg.jpeg';
+import img4 from '../../assets/1000279377.jpg.jpeg';
+import img5 from '../../assets/1000289082.jpg.jpeg';
+import img6 from '../../assets/1000289083.jpg.jpeg';
+import img7 from '../../assets/1000289086.jpg.jpeg';
+import img8 from '../../assets/1000292817.jpg.jpeg';
+
 const MediaGallery = () => {
-    const [filter, setFilter] = useState('All');
+    const [activeTab, setActiveTab] = useState('Photos');
 
-    const categories = ['All', 'Portraits', 'Stills'];
-
-    // Using elegant placeholders that match the theme until HD photos arrive
+    // New photos from assets
     const photos = [
-        { id: 1, category: 'Portraits', title: 'Headshot', url: '' },
-        { id: 2, category: 'Stills', title: 'Mid-shot', url: '' },
-        { id: 3, category: 'Portraits', title: 'Full-shot', url: '' },
-        { id: 4, category: 'Stills', title: 'Editorial', url: '' },
+        { id: 1, url: img1 },
+        { id: 2, url: img2 },
+        { id: 3, url: img3 },
+        { id: 4, url: img4 },
+        { id: 5, url: img5 },
+        { id: 6, url: img6 },
+        { id: 7, url: img7 },
+        { id: 8, url: img8 },
     ];
 
-    const filteredPhotos = filter === 'All' ? photos : photos.filter(p => p.category === filter);
+    // Specific Youtube Links provided by user
+    const videos = [
+        { id: 1, title: 'Performance Showreel 1', yt: 'ny_qTmnqsyE' },
+        { id: 2, title: 'Performance Showreel 2', yt: 'GCUybdjE-pE' },
+        { id: 3, title: 'Performance Showreel 3', yt: 'zDX8cVhZpwo' },
+        { id: 4, title: 'Shortfilm', yt: 'xGSqUbN1k1g' },
+    ];
 
     return (
         <section id="portfolio" className="section container">
@@ -25,44 +43,73 @@ const MediaGallery = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
             >
-                <span className="tagline">Gallery</span>
-                <h2>Portfolio</h2>
+                <span className="tagline">Showcase</span>
+                <h2>Portfolio & Reels</h2>
             </motion.div>
 
             <div className="portfolio-filters flex-center">
-                {categories.map((cat) => (
-                    <button
-                        key={cat}
-                        className={`filter-btn ${filter === cat ? 'active' : ''}`}
-                        onClick={() => setFilter(cat)}
-                    >
-                        {cat}
-                    </button>
-                ))}
+                <button
+                    className={`filter-btn ${activeTab === 'Photos' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('Photos')}
+                >
+                    Photos
+                </button>
+                <button
+                    className={`filter-btn ${activeTab === 'Videos' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('Videos')}
+                >
+                    Videos / Reels
+                </button>
             </div>
 
-            <motion.div
-                className="masonry-grid"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                key={filter} // Re-animate on filter change
-            >
-                {filteredPhotos.map((photo, index) => (
-                    <motion.div
-                        key={photo.id}
-                        className={`masonry-item item-${index % 2 === 0 ? 'tall' : 'wide'}`}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                    >
-                        {/* Real img tag can go here, using a styled placeholder for now */}
-                        <div className="photo-placeholder">
-                            <span>{photo.title}</span>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                >
+                    {activeTab === 'Photos' ? (
+                        <div className="masonry-grid glow-photos">
+                            {photos.map((photo, index) => (
+                                <motion.div
+                                    key={photo.id}
+                                    className={`masonry-item item-${index % 3 === 0 ? 'tall' : 'wide'}`}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                                >
+                                    <img src={photo.url} alt={`Portfolio ${index + 1}`} className="portfolio-image" loading="lazy" />
+                                </motion.div>
+                            ))}
                         </div>
-                    </motion.div>
-                ))}
-            </motion.div>
+                    ) : (
+                        <div className="video-grid">
+                            {videos.map((video, index) => (
+                                <motion.div
+                                    key={video.id}
+                                    className="video-card glass-card"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                                >
+                                    <div className="video-container">
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${video.yt}?rel=0`}
+                                            title={video.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
+                                    <h3 className="video-title">{video.title}</h3>
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
+                </motion.div>
+            </AnimatePresence>
         </section>
     );
 };
