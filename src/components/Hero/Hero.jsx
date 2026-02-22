@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Instagram, Youtube } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import heroImg from '../../assets/1000268673.jpg.jpeg';
 import './Hero.css';
 
@@ -26,6 +27,7 @@ const Hero = () => {
                     <div className="header-socials flex-center" style={{ gap: '1rem' }}>
                         <a href="http://www.instagram.com/raam.0110" target="_blank" rel="noopener noreferrer" className="social-icon-sm" aria-label="Instagram"><Instagram size={20} /></a>
                         <a href="https://youtu.be/4pQq4caQFh8" target="_blank" rel="noopener noreferrer" className="social-icon-sm" aria-label="YouTube"><Youtube size={20} /></a>
+                        <a href="https://wa.me/919566871226" target="_blank" rel="noopener noreferrer" className="social-icon-sm" aria-label="WhatsApp"><FaWhatsapp size={20} /></a>
                     </div>
                 </motion.div>
 

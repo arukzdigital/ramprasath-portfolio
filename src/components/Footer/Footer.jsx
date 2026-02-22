@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, Instagram, Youtube } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -23,6 +24,12 @@ const Footer = () => {
                         <span className="contact-label">Phone</span>
                         <span className="contact-value">+91 95668 71226</span>
                     </a>
+
+                    <a href="https://wa.me/919566871226" target="_blank" rel="noopener noreferrer" className="contact-card glass-card">
+                        <FaWhatsapp size={24} className="contact-icon" style={{ color: '#25D366' }} />
+                        <span className="contact-label">WhatsApp</span>
+                        <span className="contact-value">+91 95668 71226</span>
+                    </a>
                 </div>
 
                 <div className="social-links flex-center">
@@ -31,6 +38,9 @@ const Footer = () => {
                     </a>
                     <a href="https://youtu.be/4pQq4caQFh8" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
                         <Youtube size={20} />
+                    </a>
+                    <a href="https://wa.me/919566871226" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="WhatsApp">
+                        <FaWhatsapp size={20} />
                     </a>
                 </div>
 
