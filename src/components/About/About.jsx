@@ -1,9 +1,36 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import profileImg from '../../assets/1000289083.jpg.jpeg';
 import './About.css';
 
 const About = () => {
+    // 3D Parallax Hover Effect state
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+    const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     return (
         <section id="about" className="section container">
             <motion.div
@@ -13,10 +40,19 @@ const About = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="about-image-container">
-                    <img src={profileImg} alt="Ram Prasath Profile" className="about-image" />
-                    <div className="about-glow"></div>
-                </div>
+                <motion.div
+                    className="about-image-container"
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    style={{
+                        rotateX,
+                        rotateY,
+                        transformStyle: "preserve-3d"
+                    }}
+                >
+                    <img src={profileImg} alt="Ram Prasath Profile" className="about-image" style={{ transform: "translateZ(30px)" }} />
+                    <div className="about-glow" style={{ transform: "translateZ(-30px) translate(-50%, -50%)" }}></div>
+                </motion.div>
 
                 <div className="about-content text-center">
                     <h2 className="section-title">About Me</h2>
