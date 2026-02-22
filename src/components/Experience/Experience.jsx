@@ -27,7 +27,7 @@ const Experience = () => {
                 viewport={{ once: true }}
             >
                 <span className="tagline">Journey</span>
-                <h2>Select Experience</h2>
+                <h2>Acting Experience</h2>
             </motion.div>
 
             <div className="experience-list">
