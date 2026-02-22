@@ -10,9 +10,11 @@
     border: 1px solid transparent;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all var(--transition-fast);
 }

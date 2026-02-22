@@ -21,6 +21,16 @@
     letter-spacing: 1px;
 }
 
+.social-icon-sm {
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+    display: flex;
+}
+
+.social-icon-sm:hover {
+    color: var(--accent-blue);
+}
+
 .hero-content {
     max-width: 700px;
     margin: 0 auto 3rem;

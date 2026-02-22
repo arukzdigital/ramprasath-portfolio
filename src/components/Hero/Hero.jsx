@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Instagram, Youtube } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
@@ -22,6 +22,10 @@ const Hero = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <span className="brand-name">RAM PRASATH</span>
+                    <div className="header-socials flex-center" style={{ gap: '1rem' }}>
+                        <a href="#" className="social-icon-sm" aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href="#" className="social-icon-sm" aria-label="YouTube"><Youtube size={20} /></a>
+                    </div>
                 </motion.div>
 
                 <motion.div
