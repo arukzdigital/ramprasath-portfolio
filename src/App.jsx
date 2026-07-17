@@ -1,19 +1,27 @@
-import React from 'react';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Experience from './components/Experience/Experience';
-import MediaGallery from './components/MediaGallery/MediaGallery';
-import Footer from './components/Footer/Footer';
+import Navbar from './components/layout/Navbar/Navbar';
+import Footer from './components/layout/Footer/Footer';
+import Hero from './components/sections/Hero/Hero';
+import About from './components/sections/About/About';
+import Experience from './components/sections/Experience/Experience';
+import Reel from './components/sections/Reel/Reel';
+import Gallery from './components/sections/Gallery/Gallery';
+import Contact from './components/sections/Contact/Contact';
 
 function App() {
     return (
-        <div className="app">
-            <Hero />
-            <About />
-            <Experience />
-            <MediaGallery />
+        <>
+            <a href="#main-content" className="skip-link">Skip to content</a>
+            <Navbar />
+            <main id="main-content">
+                <Hero />
+                <About />
+                <Reel />
+                <Gallery />
+                <Experience />
+                <Contact />
+            </main>
             <Footer />
-        </div>
+        </>
     );
 }
 
