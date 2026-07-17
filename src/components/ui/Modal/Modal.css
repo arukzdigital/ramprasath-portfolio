@@ -1,0 +1,52 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: var(--z-modal-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-4);
+}
+
+.modal-content {
+    position: relative;
+    z-index: var(--z-modal);
+    width: 100%;
+    max-width: 1000px;
+    max-height: calc(100vh - var(--space-8));
+    background: #000;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+}
+
+/* Close button lives inside the modal bounds so it's never clipped on
+   short / landscape viewports (the previous version positioned it
+   outside the card at top:-50px). */
+.modal-close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--duration-fast) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard);
+}
+
+.modal-close:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    transform: rotate(90deg);
+}

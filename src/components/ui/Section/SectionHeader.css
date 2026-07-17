@@ -1,0 +1,15 @@
+.section-header {
+    margin-bottom: var(--space-10);
+}
+
+.section-header--center {
+    text-align: center;
+}
+
+.section-header--center h2 {
+    margin: 0 auto;
+}
+
+.section-header--left {
+    text-align: left;
+}

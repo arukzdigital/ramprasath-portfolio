@@ -1,23 +1,40 @@
 # Ram Prasath.T - Actor Portfolio
 
-A world-class, production-ready actor portfolio website designed to showcase performance reels, high-resolution photography, and professional experience. Built with a stunning vibrant dark theme, glassmorphism UI, and interactive 3D animations.
+A premium, editorial actor portfolio built around full-bleed cinematic photography, restrained typography, and purposeful motion — inspired by the layout principles of premium design systems (Apple, Framer, Linear) rather than dense UI chrome.
 
 ## Live Preview
 [Link to Live Site] *(Add Vercel link here after deployment)*
 
 ## Features
-- **Vibrant Dark Theme**: A deep `#0a0a0f` background enhanced with elegant Cyan and Purple neon radial glows.
-- **Cinematic Video Gallery**: Custom video thumbnails with animated pulsing neon play buttons. Videos open in a sleek, glass-morphic full-screen modal player for an immersive viewing experience.
-- **Interactive 3D Profile**: The "About Me" section features a Framer Motion-powered image that smoothly tracks the user's mouse cursor in 3D space with a reactive neon glow.
-- **High-Resolution Masonry Grid**: A seamless photo gallery tailored to beautifully display diverse modeling and performance shots.
-- **Responsive Design**: Flawless experience across desktop, tablet, and mobile devices.
-- **Print to PDF Optimization**: Custom `@media print` CSS rules ensure the dark theme and vibrant colors are perfectly preserved when saving the portfolio as a digital PDF resume.
+- **Cinematic editorial design**: deep charcoal palette, a single refined accent color, and a Fraunces/Inter type pairing instead of dense multi-color UI chrome.
+- **Full-bleed hero**: large-format portrait photography with a pull-quote and scroll cue.
+- **Reusable component system**: shared `Button`, `Section`, `SectionHeader`, `Reveal`, `Tag`, `IconLink`, and `Modal` primitives under `src/components/ui/`, so every section is built from the same building blocks instead of one-off markup.
+- **Content layer**: profile, contact, experience, and media data live in `src/content/*.js` — a single source of truth, so updating a phone number or adding a credit doesn't require touching component code.
+- **Sticky navigation**: scroll-spy active states, mobile slide-in menu.
+- **Cinematic video gallery**: YouTube-backed showreel grid with a lightbox modal.
+- **Optimized imagery**: source photography is resized/compressed and served as WebP with JPEG fallback via `<picture>`.
+- **Accessible by default**: visible focus states, `prefers-reduced-motion` support throughout, skip-to-content link, semantic landmarks.
+- **Responsive**: a single mobile-first breakpoint scale (480/768/1024/1280).
+- **Print to PDF Optimization**: `@media print` rules preserve the dark theme when saving the portfolio as a digital PDF resume.
 
 ## Tech Stack
-- **Framework**: React (Vite)
-- **Styling**: Vanilla CSS with modern custom properties and glassmorphism techniques.
-- **Animations**: Framer Motion & native CSS transitions.
-- **Icons**: Lucide React & React Icons (WhatsApp).
+- **Framework**: React 19 (Vite 7)
+- **Styling**: Vanilla CSS with a design-token layer (`src/styles/tokens.css`)
+- **Animations**: Framer Motion, gated by `prefers-reduced-motion`
+- **Icons**: Lucide React & React Icons (WhatsApp)
+- **Linting**: ESLint (flat config)
+
+## Project Structure
+```
+src/
+  content/     profile, contact, experience, media — single source of truth
+  styles/      design tokens, reset/base, layout utilities
+  hooks/       useReducedMotion, useScrollSpy, useLockBodyScroll
+  components/
+    ui/        reusable primitives (Button, Section, Reveal, Modal, ...)
+    layout/    Navbar, Footer
+    sections/  Hero, About, Experience, Portfolio, Contact
+```
 
 ## Running Locally
 
@@ -31,7 +48,12 @@ A world-class, production-ready actor portfolio website designed to showcase per
    npm run dev
    ```
 
-3. **Production Build**
+3. **Lint**
+   ```bash
+   npm run lint
+   ```
+
+4. **Production Build**
    ```bash
    npm run build
    ```
